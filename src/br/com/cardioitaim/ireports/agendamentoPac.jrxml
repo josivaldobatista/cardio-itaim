@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pacientes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="faa9a161-4d50-4afe-a7e9-375a69f0fe32">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_agendam" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from agendamentos inner join pacientes on codpac_nome_agendam = id_paciente inner join medicos on codmed_nome_agendam = id_medico where id_agendam = $P{id_agendam};]]>
+	</queryString>
+	<field name="id_agendam" class="java.lang.Integer"/>
+	<field name="codpac_nome_agendam" class="java.lang.Integer"/>
+	<field name="periodo_agendam" class="java.lang.String"/>
+	<field name="codmed_nome_agendam" class="java.lang.Integer"/>
+	<field name="data_agendam" class="java.sql.Date"/>
+	<field name="dia_agendam" class="java.sql.Timestamp"/>
+	<field name="motivo_agendam" class="java.lang.String"/>
+	<field name="exame_agendam" class="java.lang.String"/>
+	<field name="status_agendam" class="java.lang.String"/>
+	<field name="horario_agendam" class="java.lang.String"/>
+	<field name="id_paciente" class="java.lang.Integer"/>
+	<field name="nome_paciente" class="java.lang.String"/>
+	<field name="rg_paciente" class="java.lang.String"/>
+	<field name="cpf_paciente" class="java.lang.String"/>
+	<field name="email_paciente" class="java.lang.String"/>
+	<field name="convenio_paciente" class="java.lang.String"/>
+	<field name="telefone_paciente" class="java.lang.String"/>
+	<field name="celular_paciente" class="java.lang.String"/>
+	<field name="contato_paciente" class="java.lang.String"/>
+	<field name="obs_paciente" class="java.lang.String"/>
+	<field name="rua_paciente" class="java.lang.String"/>
+	<field name="numrua_paciente" class="java.lang.String"/>
+	<field name="cep_paciente" class="java.lang.String"/>
+	<field name="compl_paciente" class="java.lang.String"/>
+	<field name="nasc_paciente" class="java.lang.String"/>
+	<field name="fumante_paciente" class="java.lang.String"/>
+	<field name="sexo_paciente" class="java.lang.String"/>
+	<field name="id_bairro_paciente" class="java.lang.Integer"/>
+	<field name="id_medico" class="java.lang.Integer"/>
+	<field name="nome_medico" class="java.lang.String"/>
+	<field name="crm_medico" class="java.lang.String"/>
+	<field name="area_medico" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="83965df6-8ae3-4e33-9bbb-5c0a8c373d44"/>
+				<staticText>
+					<reportElement x="20" y="20" width="202" height="43" forecolor="#FFFFFF" uuid="03045db9-7910-4688-97e0-71458581c318"/>
+					<textElement>
+						<font fontName="SansSerif" size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cardio Itaim]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="372" y="23" width="203" height="20" forecolor="#FFFFFF" uuid="c723c579-b670-4959-b405-acc9553bc90e"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Paciente]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="395" y="63" width="180" height="20" forecolor="#FFFFFF" uuid="c78ec970-ccc8-43e3-9629-e64df0494424"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="332" y="43" width="243" height="20" forecolor="#FFFFFF" uuid="4c124149-b0b5-4d5b-b6e6-eb169d1d42be"/>
+					<textElement textAlignment="Right">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nome_paciente}]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="222" y="10" width="82" height="68" uuid="0c42f514-172d-4031-a189-4e245ccdbf54"/>
+					<imageExpression><![CDATA["D:\\NetBeansProjects\\Cardio Itaim\\src\\imagens\\icone_desktop_principal.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="236">
+			<staticText>
+				<reportElement x="0" y="12" width="39" height="20" uuid="428da38e-248f-44d3-aa63-bb6cae5f07dd"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="39" y="12" width="100" height="20" uuid="1dadb740-e6cd-43cb-b8ca-b88133ea7b67"/>
+				<textFieldExpression><![CDATA[$F{id_agendam}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="32" width="25" height="20" uuid="69e719b4-a392-4655-8fb2-13e72a723ab6"/>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="32" width="90" height="20" uuid="45d05ec7-6cad-40f4-811a-cd49fea7df70"/>
+				<textFieldExpression><![CDATA[$F{cpf_paciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="52" width="86" height="20" uuid="6e04b2a8-5374-41cb-a085-5570585f76bb"/>
+				<text><![CDATA[Data Nascimento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="86" y="52" width="100" height="20" uuid="e19f238f-bdf6-4f91-8b6f-ac40475da813"/>
+				<textFieldExpression><![CDATA[$F{nasc_paciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="120" y="32" width="26" height="20" uuid="2cede38f-a77e-4e8c-b7e1-95323530e979"/>
+				<text><![CDATA[Sexo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="32" width="72" height="20" uuid="ee244639-734c-4f28-96c3-09ac828b392e"/>
+				<textFieldExpression><![CDATA[$F{sexo_paciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="222" y="32" width="47" height="20" uuid="ccefbe2c-638a-422f-a64a-ace56c9f3f0d"/>
+				<text><![CDATA[Fumante]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="269" y="32" width="43" height="20" uuid="2129a99a-76e5-4113-b654-d32d64d27fae"/>
+				<textFieldExpression><![CDATA[$F{fumante_paciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="72" width="38" height="20" uuid="94f48d92-c134-4313-99cc-167161259e59"/>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="39" y="72" width="230" height="20" uuid="e5054141-1532-45aa-b6ab-ff1af4fa24ef"/>
+				<textFieldExpression><![CDATA[$F{email_paciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="92" width="39" height="20" uuid="e35182b2-7403-43d2-8cb8-f3e250d1fee5"/>
+				<text><![CDATA[Médico]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="39" y="92" width="230" height="20" uuid="e3564681-e7cb-4d91-b2ce-884fac7fe059"/>
+				<textFieldExpression><![CDATA[$F{nome_medico}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="112" width="100" height="20" uuid="14472d04-ba95-4c8f-8582-15b9359cfd04"/>
+				<text><![CDATA[Data Agendamento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="102" y="112" width="45" height="20" uuid="c5c2d735-2575-4c14-8543-e6419a2b12ec"/>
+				<textFieldExpression><![CDATA[$F{data_agendam}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="132" width="111" height="20" uuid="3a5f2f89-7666-49a4-83af-2002d42cddea"/>
+				<text><![CDATA[Dia/Hora Agendamento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="121" y="132" width="117" height="20" uuid="6fb24514-c3db-4ca2-bf60-22962af3c27e"/>
+				<textFieldExpression><![CDATA[$F{dia_agendam}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="152" width="37" height="20" uuid="b2277e10-ff98-4e91-b8e2-4d1367168b00"/>
+				<text><![CDATA[Exame]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="46" y="152" width="140" height="20" uuid="f2db357b-8c68-498e-a13a-756822adc758"/>
+				<textFieldExpression><![CDATA[$F{exame_agendam}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="172" width="36" height="20" uuid="02386335-64c7-47ce-9b2b-8b022bb14928"/>
+				<text><![CDATA[Motivo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="46" y="172" width="156" height="20" uuid="a1bcf0b2-3f5d-40b8-9f8d-1086cda7bf39"/>
+				<textFieldExpression><![CDATA[$F{motivo_agendam}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="230" y="112" width="40" height="20" uuid="ca585585-2f83-4b22-acb8-e553030daa8f"/>
+				<text><![CDATA[Periodo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="269" y="112" width="77" height="20" uuid="8b29acfb-6f00-4dba-981e-c73456ae8b1b"/>
+				<textFieldExpression><![CDATA[$F{periodo_agendam}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="150" y="112" width="28" height="20" uuid="9a3c9f24-a16f-49c1-9f9d-32df157e7c8f"/>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="178" y="112" width="52" height="20" uuid="29fb5952-1ede-4678-826d-eb86fbf936a7"/>
+				<textFieldExpression><![CDATA[$F{horario_agendam}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="95"/>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="a277dfe1-6bbe-49ad-aef7-178e152f19a3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="dec2ec42-cdfe-4b0e-83a5-2e6ea1cd7199"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

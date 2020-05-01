@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Cardio_Itaim">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/Cardio_Itaim.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
